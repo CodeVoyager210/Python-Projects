@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Ratings</title>
+</head>
+<body>
+    {% for book in books %}
+        {% if book['id'] == id %}
+            <form action="{{ url_for('home') }}" method="post">
+                <p>Book Name: {{ book['title'] }}</p>
+                <p>Current Rating: {{ book['rating'] }}</p>
+                <input type="hidden" name="id" value="{{ book['id'] }}">
+                <input name='rating' placeholder="New Rating" required>
+                <button type="submit">Change Rating</button>
+            </form>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>
