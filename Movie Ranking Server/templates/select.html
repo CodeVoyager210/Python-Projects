@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Select Movie{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="heading">Select Movie</h1>
+ {% for data in datas: %}
+  <p>
+    <a href="{{ url_for('add_database',id=data['id'],title=data['original_title'],desc=data['overview'],year=data['release_date'][:4],img=data['poster_path']) }}"> {{ data['original_title'] }} - {{ data['release_date'][:4] }}</a>
+  </p>
+ {% endfor %}
+
+</div>
+{% endblock %}
